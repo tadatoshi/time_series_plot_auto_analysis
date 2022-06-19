@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def calculate_variogram(data, lags=20):
+def calculate_variogram(data: pd.DataFrame, lags=20):
 
     variogram_list = []
 
