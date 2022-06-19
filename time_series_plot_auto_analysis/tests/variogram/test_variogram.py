@@ -1,7 +1,7 @@
 import pytest
 from time_series_plot_auto_analysis.variogram.calculation import calculate_variogram
 import pandas as pd
-from pandas.util.testing import assert_frame_equal
+from pandas.testing import assert_frame_equal
 
 
 class TestVariogram:
@@ -12,11 +12,11 @@ class TestVariogram:
                               names=["temperature"])
         yield data_df
 
-    @pytest.mark.skip(reason="Implement calculate_variogram function")
     def test_one_time_unit_apart(self, furnace_data):
 
-        expected_variogram_g_k = pd.DataFrame([1.0], columns=['g_k'])
+        expected_variogram = pd.DataFrame([1.0], columns=['g_k'])
+        expected_variogram.index += 1
 
-        actual_variogram_g_k = calculate_variogram(furnace_data, lags=1)
+        actual_variogram = calculate_variogram(furnace_data, lags=1)
 
-        assert assert_frame_equal(actual_variogram_g_k, expected_variogram_g_k)
+        assert_frame_equal(actual_variogram, expected_variogram)
