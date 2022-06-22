@@ -1,7 +1,9 @@
 import pytest
+from pandas.testing import assert_frame_equal
+from hypothesis import given, strategies as st
 from time_series_plot_auto_analysis.variogram.calculation import calculate_variogram
 import pandas as pd
-from pandas.testing import assert_frame_equal
+from pandas.core.frame import DataFrame
 
 
 class TestVariogram:
@@ -36,3 +38,9 @@ class TestVariogram:
         actual_variogram = calculate_variogram(data_df, lags=2)
 
         assert_frame_equal(actual_variogram, expected_variogram)
+
+    # @given(data=st.from_type(DataFrame), lags=st.just(20))
+    # def test_fuzz_calculate_variogram(self, data, lags):
+    #     calculate_variogram(
+    #         data=data, lags=lags
+    #     )
