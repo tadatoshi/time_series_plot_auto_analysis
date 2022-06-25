@@ -5,3 +5,7 @@ seaborn
 scikit-learn
 statsmodels
 jupyterlab
+pytest
+hypothesis
+click
+black
