@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def plot_and_save(data_frame: pd.DataFrame, file_path, xlabel='Lag k', ylabel='Gk', x_max=None, y_max=None,
-                  save_without_displaying_plot=False):
+                  axis_off=False, save_without_displaying_plot=False):
 
     if x_max is None:
         x_max = len(data_frame)
@@ -15,6 +15,8 @@ def plot_and_save(data_frame: pd.DataFrame, file_path, xlabel='Lag k', ylabel='G
                           xlim=([1, x_max]), ylim=([1, y_max]),
                           xticks=np.arange(1, x_max+1), yticks=np.arange(1, y_max+1, 0.5)
                          ).get_figure()
+    if axis_off:
+        plt.axis('off')
     if save_without_displaying_plot:
         plt.close(fig)
     fig.savefig(file_path)
