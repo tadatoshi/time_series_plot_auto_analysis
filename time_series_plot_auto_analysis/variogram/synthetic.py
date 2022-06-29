@@ -7,8 +7,11 @@ from time_series_plot_auto_analysis.variogram.calculation import calculate_vario
 from time_series_plot_auto_analysis.variogram.plotting import plot_and_save
 
 
-def generate_synthetic_variogram_plots(number_of_plots=100, variogram_lags=15,
+def generate_synthetic_variogram_plots(plots_directory_path=None, number_of_plots=100, variogram_lags=15,
                                        arparams=[], maparams=[], number_of_samples=100):
+
+    if plots_directory_path is None:
+        plots_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../plots'))
 
     arparams = np.array(arparams)
     arparams = np.r_[1, -arparams]
@@ -17,7 +20,7 @@ def generate_synthetic_variogram_plots(number_of_plots=100, variogram_lags=15,
 
     current_time_string = datetime.now().strftime("%Y%m%d%H%M%S")
     directory_name = f"synthetic_variograms_{current_time_string}"
-    directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../plots', directory_name))
+    directory_path = os.path.abspath(os.path.join(plots_directory_path, directory_name))
     os.mkdir(directory_path)
 
     for i in range(number_of_plots):

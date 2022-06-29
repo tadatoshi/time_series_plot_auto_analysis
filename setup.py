@@ -146,7 +146,7 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     #install_requires=['peppercorn'],  # Optional
     install_requires=['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn', 'statsmodels',
-                      'jupyterlab'],
+                      'opencv-python', 'jupyterlab'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"

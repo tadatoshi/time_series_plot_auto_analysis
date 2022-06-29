@@ -4,6 +4,7 @@ matplotlib
 seaborn
 scikit-learn
 statsmodels
+opencv-python
 jupyterlab
 pytest
 hypothesis
