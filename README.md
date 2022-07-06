@@ -1,7 +1,7 @@
 # Time Series Plot Auto Analysis
 
 Time Series Plot Auto Analysis is a Python library for analyzing time series plot by Deep Learning trained based on 
-what human analysts look for in time series plot to identify key pattens. 
+what human analysts look for in time series plot to identify key patterns. 
 
 ## Installation
 
