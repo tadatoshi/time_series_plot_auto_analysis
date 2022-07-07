@@ -6,7 +6,7 @@ import pandas as pd
 from pandas.core.frame import DataFrame
 
 
-class TestVariogram:
+class TestCalculation:
 
     @pytest.fixture()
     def furnace_data(self):
