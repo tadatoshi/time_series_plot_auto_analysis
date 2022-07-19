@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-def plot_and_save(data_frame: pd.DataFrame, file_path, xlabel='Lag k', ylabel='Gk', x_max=None, y_max=None,
+def plot_and_save(data_frame: pd.DataFrame, file_path, xlabel='x', ylabel='y', x_max=None, y_max=None,
                   marker_on=False, axis_off=False, save_without_displaying_plot=False):
 
     if x_max is None:

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.arima_process import arma_generate_sample
 from time_series_plot_auto_analysis.variogram.calculation import calculate_variogram
-from time_series_plot_auto_analysis.variogram.plotting import plot_and_save
+from time_series_plot_auto_analysis.plotting.plotting import plot_and_save
 
 
 def generate_synthetic_variogram_plots(plots_directory_path=None, number_of_plots=100, variogram_lags=15,
