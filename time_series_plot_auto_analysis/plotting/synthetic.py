@@ -1,15 +1,15 @@
 import os
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from datetime import datetime
 
 import numpy as np
 import pandas as pd
 from statsmodels.tsa.arima_process import arma_generate_sample
 
-from time_series_plot_auto_analysis.plotting.plotting import plot_and_save
+from time_series_plot_auto_analysis.plotting.plotting import PlottingUtil
 
 
-class AbstractSyntheticPlot:
+class AbstractSyntheticPlot(ABC):
 
     def generate(self, plots_directory_path=None, number_of_plots=100, lags=30,
                  arparams=[], maparams=[], number_of_samples=100):
@@ -22,11 +22,13 @@ class AbstractSyntheticPlot:
         maparams = np.array(maparams)
         maparams = np.r_[1, -maparams]
 
-        current_time_string = datetime.now().strftime("%Y%m%d%H%M%S")
+        current_time_string = self._current_time_string()
 
         directory_name = f"{self._directory_file_name_prefix()}_{current_time_string}"
         directory_path = os.path.abspath(os.path.join(plots_directory_path, directory_name))
         os.mkdir(directory_path)
+
+        plotting_util = self._plotting_util()
 
         for i in range(number_of_plots):
             generated_arma_sample = arma_generate_sample(arparams, maparams, number_of_samples)
@@ -34,7 +36,13 @@ class AbstractSyntheticPlot:
             data_to_plot = self._additional_calculation(generated_arma_sample_df, lags=lags)
             file_name = f"{self._directory_file_name_prefix()}_{current_time_string}_{i+1}.png"
             file_path = os.path.join(directory_path, file_name)
-            plot_and_save(data_to_plot, file_path, axis_off=True, save_without_displaying_plot=True)
+            plotting_util.plot_and_save(data_to_plot, file_path, axis_off=True, save_without_displaying_plot=True)
+
+    def _current_time_string(self):
+        return datetime.now().strftime("%Y%m%d%H%M%S")
+
+    def _plotting_util(self):
+        return PlottingUtil()
 
     @abstractmethod
     def _directory_file_name_prefix(self):
