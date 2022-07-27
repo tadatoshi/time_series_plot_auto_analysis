@@ -3,12 +3,12 @@ from tensorflow import keras
 from time_series_plot_auto_analysis.analysis import StationarityDetection
 
 
-class VariogramStationarityDetection(StationarityDetection):
+class AcfPacfStationarityDetection(StationarityDetection):
 
     def _train_model(self, plot_image_height, plot_image_width, plot_image_color,
                      train_dataset, validation_dataset, epochs=3):
         """
-        Defines unique model for variogram plot and train it.
+        Defines unique model for ACF and PACF plot and train it.
         """
 
         num_classes = 2
