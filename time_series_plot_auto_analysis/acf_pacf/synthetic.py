@@ -9,19 +9,25 @@ class SyntheticAcfPacfPlot(AbstractSyntheticPlot):
 
         current_time_string = self._current_time_string()
 
-        synthetic_acf_plot = SyntheticAcfPlot()
+        synthetic_acf_plot = self._syntheric_acf_plot()
         synthetic_acf_plot.set_current_time_string(current_time_string)
         synthetic_acf_plot.generate(plots_directory_path=plots_directory_path,
                 number_of_plots=number_of_plots, lags=lags,
                 arparams=arparams, maparams=maparams,
                 number_of_samples=number_of_samples)
 
-        synthetic_pacf_plot = SyntheticPacfPlot()
+        synthetic_pacf_plot = self._syntheric_pacf_plot()
         synthetic_pacf_plot.set_current_time_string(current_time_string)
         synthetic_pacf_plot.generate(plots_directory_path=plots_directory_path,
                 number_of_plots=number_of_plots, lags=lags,
                 arparams=arparams, maparams=maparams,
                 number_of_samples=number_of_samples)
+
+    def _syntheric_acf_plot(self):
+        return SyntheticAcfPlot()
+
+    def _syntheric_pacf_plot(self):
+        return SyntheticPacfPlot()
 
     # Not used
     def _directory_file_name_prefix(self):
