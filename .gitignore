@@ -279,5 +279,5 @@ pip-selfcheck.json
 venv*/
 .idea
 build
-plots*/
+plots/**
 tensorflow_models*/
