@@ -33,7 +33,7 @@ class SyntheticAcfPacfPlot(AbstractSyntheticPlot):
         pass
 
     # Not used
-    def _additional_calculation(self, generated_arma_sample_df, lags=15):
+    def _additional_calculation(self, generated_arma_sample_df, **kwargs):
         return generated_arma_sample_df
 
 
@@ -51,7 +51,7 @@ class SyntheticAcfPlot(AbstractSyntheticPlot):
     def _directory_file_name_prefix(self):
         return "synthetic_acf"
 
-    def _additional_calculation(self, generated_arma_sample_df, lags=15):
+    def _additional_calculation(self, generated_arma_sample_df, **kwargs):
         return generated_arma_sample_df
 
 
@@ -69,5 +69,5 @@ class SyntheticPacfPlot(AbstractSyntheticPlot):
     def _directory_file_name_prefix(self):
         return "synthetic_pacf"
 
-    def _additional_calculation(self, generated_arma_sample_df, lags=15):
+    def _additional_calculation(self, generated_arma_sample_df, **kwargs):
         return generated_arma_sample_df

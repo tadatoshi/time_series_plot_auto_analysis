@@ -18,7 +18,7 @@ class SeasonalityNonstationaryAcfPlot(SyntheticAcfPlot):
     def _directory_file_name_prefix(self):
         return "synthetic_seasonality_nonstationary_acf"
 
-    def _additional_calculation(self, generated_arma_sample_df, lags=15):
+    def _additional_calculation(self, generated_arma_sample_df, **kwargs):
         return add_synthetic_seasonality(generated_arma_sample_df)
 
 
@@ -27,5 +27,5 @@ class SeasonalityNonstationaryPacfPlot(SyntheticPacfPlot):
     def _directory_file_name_prefix(self):
         return "synthetic_seasonality_nonstationary_pacf"
 
-    def _additional_calculation(self, generated_arma_sample_df, lags=15):
+    def _additional_calculation(self, generated_arma_sample_df, **kwargs):
         return add_synthetic_seasonality(generated_arma_sample_df)
