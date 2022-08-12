@@ -12,7 +12,7 @@ class TestCalculation:
     def furnace_data(self):
         data_df = pd.read_csv("data/temperature_readings_from_a_ceramic_furnace.csv", header=None,
                               names=["temperature"])
-        yield data_df
+        return data_df
 
     def test_one_time_unit_apart(self, furnace_data):
 

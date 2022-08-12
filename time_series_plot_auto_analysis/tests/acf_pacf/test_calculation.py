@@ -18,7 +18,7 @@ class TestCalculation:
         number_of_samples = 100
         generated_arma_sample = arma_generate_sample(arparams, maparams,
                                                      number_of_samples)
-        yield pd.DataFrame(generated_arma_sample)
+        return pd.DataFrame(generated_arma_sample)
 
     def test_trend(self, generated_arma_sample_df):
         trend_span_ratio = 4

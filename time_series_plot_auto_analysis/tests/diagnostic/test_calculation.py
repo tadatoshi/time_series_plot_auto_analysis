@@ -18,7 +18,7 @@ class TestCalculation:
         generated_arma_sample = arma_generate_sample(
             full_arparams, full_maparams, number_of_samples)
         arima_order = (len(arparams), 0, len(maparams))
-        yield pd.DataFrame(generated_arma_sample), arima_order
+        return pd.DataFrame(generated_arma_sample), arima_order
 
     def test_fit_model_and_get_residual(self, generated_arma_sample_info):
         generated_arma_sample_df = generated_arma_sample_info[0]
